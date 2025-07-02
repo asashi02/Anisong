@@ -1,0 +1,259 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    background-color: #1a1a2e; /* Dark theme */
+    color: #e0e0e0;
+    line-height: 1.6;
+}
+
+header {
+    background-color: #0f3460;
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+}
+
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #16213e;
+    padding: 0.5rem 0;
+    border-bottom: 2px solid #e94560;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #e0e0e0;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #e9456040;
+}
+
+.tab-button.active {
+    background-color: #e94560;
+    color: #ffffff;
+    font-weight: bold;
+}
+
+main {
+    padding: 1rem;
+}
+
+.tab-content {
+    margin-top: 1.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+input[type="file"],
+input[type="text"],
+textarea,
+select {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #0f3460;
+    border-radius: 5px;
+    background-color: #2e3e50;
+    color: #e0e0e0;
+    font-size: 1rem;
+}
+
+button {
+    background-color: #e94560;
+    color: #ffffff;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+button:hover {
+    background-color: #c03650;
+}
+
+.media-list {
+    margin-top: 20px;
+}
+
+.media-item {
+    background-color: #16213e;
+    padding: 15px;
+    margin-bottom: 10px;
+    border-radius: 8px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+}
+
+.media-item:hover {
+    background-color: #0f3460;
+}
+
+.media-item-info {
+    flex-grow: 1;
+}
+
+.media-item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.1rem;
+    color: #ffffff;
+}
+
+.media-item-info p {
+    margin: 0;
+    font-size: 0.9rem;
+    color: #b0b0b0;
+}
+
+.media-item-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 5px;
+    object-fit: cover;
+    margin-right: 15px;
+    border: 1px solid #e94560;
+}
+
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
+    gap: 15px;
+}
+
+.image-grid .media-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+}
+
+.image-grid .media-item-thumbnail {
+    width: 100px;
+    height: 100px;
+    margin: 0 auto 10px auto;
+}
+
+.image-grid .media-item-info {
+    width: 100%;
+}
+
+/* Media Player Styling */
+#mediaPlayerContainer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background-color: #0f3460;
+    border-top: 2px solid #e94560;
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 1000;
+}
+
+#audioPlayer, #videoPlayer {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: #1a1a2e;
+}
+
+#currentMediaInfo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#currentMediaInfo h3 {
+    margin: 0;
+    color: #e94560;
+}
+
+#currentMediaInfo p {
+    margin: 5px 0;
+}
+
+#closePlayerBtn {
+    display: block;
+    margin: 0 auto;
+    background-color: #c03650;
+}
+
+/* Modals */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.7);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    background-color: #16213e;
+    margin: 15% auto;
+    padding: 20px;
+    border: 1px solid #0f3460;
+    border-radius: 10px;
+    width: 90%;
+    max-width: 500px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #e94560;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 5px;
+    color: #b0b0b0;
+}
+
+.modal-content button {
+    margin-top: 15px;
+}
+
+.modal-content .close-modal {
+    background-color: #4a5464;
+}
+
+.delete-btn {
+    background-color: #8b0000;
+}
+.delete-btn:hover {
+    background-color: #6b0000;
+}
+
+/* PWA Install Button */
+#installApp {
+    background-color: #28a745;
+}
+#installApp:hover {
+    background-color: #218838;
+}

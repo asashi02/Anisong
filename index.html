@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anisong Hub PWA</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="icons/icon-192x192.png">
+    <meta name="theme-color" content="#FF0055">
+    <meta name="description" content="Your personal anime music and media manager PWA.">
+</head>
+<body>
+    <header>
+        <h1>Anisong Hub</h1>
+        <button id="installApp" class="hidden">Install App</button>
+    </header>
+
+    <nav class="tabs">
+        <button class="tab-button active" data-tab="music">Music</button>
+        <button class="tab-button" data-tab="videos">Videos</button>
+        <button class="tab-button" data-tab="images">Images</button>
+        <button class="tab-button" data-tab="anime">Anime Series</button>
+        <button class="tab-button" data-tab="playlists">Playlists</button>
+    </nav>
+
+    <main>
+        <section id="music" class="tab-content active">
+            <h2>Your Music</h2>
+            <input type="file" id="musicFileInput" accept="audio/*" multiple>
+            <button id="addMusicBtn">Add Music Files</button>
+            <div id="musicList" class="media-list"></div>
+        </section>
+
+        <section id="videos" class="tab-content hidden">
+            <h2>Your Videos</h2>
+            <input type="file" id="videoFileInput" accept="video/*" multiple>
+            <button id="addVideoBtn">Add Video Files</button>
+            <div id="videoList" class="media-list"></div>
+        </section>
+
+        <section id="images" class="tab-content hidden">
+            <h2>Your Images</h2>
+            <input type="file" id="imageFileInput" accept="image/*" multiple>
+            <button id="addImageBtn">Add Image Files</button>
+            <div id="imageList" class="media-list image-grid"></div>
+        </section>
+
+        <section id="anime" class="tab-content hidden">
+            <h2>Anime Series</h2>
+            <button id="addAnimeBtn">Add New Anime Series</button>
+            <div id="animeList" class="media-list"></div>
+        </section>
+
+        <section id="playlists" class="tab-content hidden">
+            <h2>Your Playlists</h2>
+            <button id="addPlaylistBtn">Create New Playlist</button>
+            <div id="playlistList" class="media-list"></div>
+        </section>
+
+        <div id="mediaPlayerContainer" class="hidden">
+            <audio id="audioPlayer" controls></audio>
+            <video id="videoPlayer" controls></video>
+            <div id="currentMediaInfo">
+                <h3>Now Playing: <span id="currentMediaTitle"></span></h3>
+                <p id="currentMediaArtist"></p>
+                <p id="currentMediaAnime"></p>
+                <p id="currentMediaLyrics"></p>
+            </div>
+            <button id="closePlayerBtn">Close Player</button>
+        </div>
+
+        <div id="addAnimeModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Add New Anime Series</h3>
+                <label for="animeTitle">Title:</label>
+                <input type="text" id="animeTitleInput">
+                <label for="animeDescription">Description:</label>
+                <textarea id="animeDescriptionInput"></textarea>
+                <label for="animeCover">Cover Image:</label>
+                <input type="file" id="animeCoverInput" accept="image/*">
+                <button id="saveAnimeBtn">Save Anime</button>
+                <button class="close-modal">Cancel</button>
+            </div>
+        </div>
+
+        <div id="editMediaModal" class="modal hidden">
+            <div class="modal-content">
+                <h3>Edit Media Details</h3>
+                <input type="hidden" id="editMediaId">
+                <input type="hidden" id="editMediaType">
+                <label for="editMediaTitle">Title:</label>
+                <input type="text" id="editMediaTitleInput">
+                <label for="editMediaArtist">Artist:</label>
+                <input type="text" id="editMediaArtistInput">
+                <label for="editMediaAnime">Associate with Anime:</label>
+                <select id="editMediaAnimeSelect"></select>
+                <label for="editMediaLyrics">Lyrics (text/LRC):</label>
+                <input type="file" id="editMediaLyricsInput" accept=".txt,.lrc">
+                <button id="saveMediaEditBtn">Save Changes</button>
+                <button class="close-modal">Cancel</button>
+                <button id="deleteMediaBtn" class="delete-btn">Delete Media</button>
+            </div>
+        </div>
+
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
