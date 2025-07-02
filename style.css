@@ -1,0 +1,466 @@
+/* Google Fonts Import - MUST be at the very top of your CSS file */
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@300;400;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400..900&display=swap'); /* For H1 and special elements */
+
+/* --- Global Styles --- */
+body {
+    font-family: 'Roboto Condensed', sans-serif;
+    margin: 0;
+    background: linear-gradient(135deg, #0A0A1A 0%, #1A1A2E 50%, #0F1A2D 100%); /* Deep cyber gradient */
+    color: #E0E0E0; /* Light text for dark background */
+    line-height: 1.6;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    overflow-x: hidden; /* Prevent horizontal scroll */
+}
+
+/* Scrollbar styling for Webkit browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #0F1A2D;
+}
+::-webkit-scrollbar-thumb {
+    background-color: #FF0077; /* Electric Pink */
+    border-radius: 4px;
+    border: 2px solid #0F1A2D;
+}
+::-webkit-scrollbar-thumb:hover {
+    background-color: #00FFFF; /* Cyan on hover */
+}
+
+/* --- Header --- */
+header {
+    background-color: rgba(0, 0, 0, 0.4); /* Slightly transparent dark */
+    padding: 1.2rem 1rem;
+    text-align: center;
+    color: #F0F0F0;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0, 255, 255, 0.2); /* Cyan glow shadow */
+    position: sticky;
+    top: 0;
+    z-index: 1001;
+    border-bottom: 1px solid rgba(0, 255, 255, 0.3);
+}
+
+h1 {
+    font-family: 'Orbitron', sans-serif; /* Futuristic font for title */
+    margin: 0;
+    font-size: 2rem;
+    color: #FF0077; /* Electric Pink */
+    text-shadow: 0 0 8px rgba(255, 0, 119, 0.8), 0 0 15px rgba(255, 0, 119, 0.5); /* Neon glow */
+    letter-spacing: 2px;
+}
+
+/* --- Tabs Navigation --- */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: rgba(10, 10, 26, 0.7); /* Darker, more transparent */
+    padding: 0.6rem 0;
+    border-bottom: 3px solid #8A2BE2; /* Vibrant Purple separator */
+    box-shadow: 0 2px 10px rgba(138, 43, 226, 0.2); /* Purple glow shadow */
+    position: sticky;
+    top: 76px; /* Adjust if header height changes (1.2rem * 16px/rem + 1rem*16px/rem = 35.2px. Let's make it 76px for 2rem header + padding) */
+    z-index: 1000;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #F0F0F0;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 400;
+    transition: all 0.3s ease;
+    flex: 1;
+    text-align: center;
+    max-width: 160px; /* Slightly wider tabs */
+    position: relative; /* For the active glow effect */
+    overflow: hidden;
+}
+
+.tab-button:hover:not(.active) {
+    background-color: rgba(0, 255, 255, 0.1); /* Subtle cyan hover */
+    color: #00FFFF;
+    transform: translateY(-2px);
+}
+
+.tab-button.active {
+    background-color: #8A2BE2; /* Vibrant Purple */
+    color: #FFFFFF;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 0 15px rgba(138, 43, 226, 0.7); /* Strong purple glow */
+    transform: translateY(-2px);
+    z-index: 1; /* Bring active tab slightly forward */
+}
+
+/* --- Main Content Area --- */
+main {
+    padding: 1.5rem;
+    flex-grow: 1;
+    background-color: rgba(26, 26, 46, 0.9); /* Slightly transparent dark background for content */
+    margin: 1rem;
+    border-radius: 12px;
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.15); /* Subtle cyber glow for main content */
+    border: 1px solid rgba(138, 43, 226, 0.2);
+}
+
+h2 {
+    color: #FF0077; /* Electric Pink */
+    text-align: center;
+    margin-top: 0;
+    margin-bottom: 2rem;
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px rgba(255, 0, 119, 0.5);
+}
+
+.tab-content {
+    margin-top: 1.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Form Elements --- */
+input[type="file"],
+input[type="text"],
+textarea,
+select {
+    display: block;
+    width: calc(100% - 24px); /* Account for padding */
+    padding: 12px;
+    margin-bottom: 18px;
+    border: 1px solid #00FFFF; /* Cyan border */
+    border-radius: 6px;
+    background-color: #0A0A1A; /* Very dark background for input fields */
+    color: #F0F0F0;
+    font-size: 1rem;
+    box-shadow: inset 0 0 5px rgba(0, 255, 255, 0.3); /* Inner cyan glow */
+    transition: all 0.3s ease;
+}
+input[type="file"]::file-selector-button {
+    background-color: #8A2BE2;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    margin-right: 10px;
+    transition: background-color 0.3s ease;
+}
+
+input[type="file"]::file-selector-button:hover {
+    background-color: #6A1BE2;
+}
+
+input[type="text"]:focus,
+textarea:focus,
+select:focus {
+    outline: none;
+    border-color: #FF0077; /* Pink focus border */
+    box-shadow: 0 0 10px rgba(255, 0, 119, 0.5); /* Pink outer glow on focus */
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* --- Buttons --- */
+button {
+    background-color: #FF0077; /* Electric Pink */
+    color: #ffffff;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 700;
+    margin-right: 12px;
+    transition: all 0.3s ease;
+    box-shadow: 0 0 10px rgba(255, 0, 119, 0.4); /* Pink button glow */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    background-color: #00FFFF; /* Cyan on hover */
+    transform: translateY(-3px);
+    box-shadow: 0 0 15px rgba(0, 255, 255, 0.6); /* Cyan hover glow */
+    color: #0A0A1A; /* Dark text on bright hover */
+}
+
+/* Specific button styles */
+#installApp {
+    background-color: #00FFFF; /* Cyan for install */
+    color: #0A0A1A;
+    box-shadow: 0 0 10px rgba(0, 255, 255, 0.4);
+}
+#installApp:hover {
+    background-color: #FF0077; /* Pink on hover for install */
+    color: #FFFFFF;
+    box-shadow: 0 0 15px rgba(255, 0, 119, 0.6);
+}
+
+.delete-btn {
+    background-color: #D9534F; /* Standard red for delete */
+    box-shadow: none; /* No glow for delete */
+}
+.delete-btn:hover {
+    background-color: #C9302C;
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+.close-modal {
+    background-color: #6C757D; /* Grey for cancel/close */
+    box-shadow: none;
+}
+.close-modal:hover {
+    background-color: #5A6268;
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+/* --- Media List Items --- */
+.media-list {
+    margin-top: 25px;
+}
+
+.media-item {
+    background-color: rgba(26, 26, 46, 0.7); /* Darker, slightly transparent for items */
+    padding: 18px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 0 12px rgba(138, 43, 226, 0.2); /* Subtle purple glow for items */
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border: 1px solid rgba(0, 255, 255, 0.1); /* Very subtle cyan border */
+}
+
+.media-item:hover {
+    transform: scale(1.02); /* Slight zoom effect */
+    box-shadow: 0 0 20px rgba(0, 255, 255, 0.4); /* Stronger cyan glow on hover */
+    background-color: rgba(26, 26, 46, 0.9);
+}
+
+.media-item-info {
+    flex-grow: 1;
+    margin-left: 20px;
+}
+
+.media-item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.25rem;
+    color: #FF0077; /* Electric Pink for titles */
+    text-shadow: 0 0 3px rgba(255, 0, 119, 0.4);
+}
+
+.media-item-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #B0B0B0; /* Lighter gray for descriptions */
+}
+
+.media-item-thumbnail {
+    width: 70px;
+    height: 70px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #00FFFF; /* Cyan border around thumbnail */
+    box-shadow: 0 0 8px rgba(0, 255, 255, 0.4); /* Cyan glow for thumbnail */
+}
+
+/* Image Grid specific styles */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(140px, 1fr));
+    gap: 20px;
+}
+
+.image-grid .media-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 15px;
+    align-items: center;
+}
+
+.image-grid .media-item-thumbnail {
+    width: 120px;
+    height: 120px;
+    margin: 0 auto 15px auto;
+}
+
+.image-grid .media-item-info {
+    width: 100%;
+    margin-left: 0;
+}
+
+/* --- Media Player Container --- */
+#mediaPlayerContainer {
+    position: fixed; /* Use fixed for consistent bottom position */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #8A2BE2, #FF0077); /* Purple to Pink gradient */
+    border-top: 3px solid #00FFFF; /* Cyan top border */
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 2000; /* Highest z-index to be always on top */
+    color: #ffffff;
+    box-shadow: 0 -5px 20px rgba(0, 255, 255, 0.3); /* Strong cyan glow from bottom */
+    transition: transform 0.3s ease-in-out;
+    transform: translateY(100%); /* Start hidden off-screen */
+}
+#mediaPlayerContainer.active-player {
+    transform: translateY(0); /* Slide up when active */
+}
+
+
+#audioPlayer, #videoPlayer {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent dark */
+    border-radius: 8px;
+    outline: none; /* Remove default focus outline */
+    border: 1px solid rgba(0, 255, 255, 0.3); /* Cyan border for players */
+}
+
+#currentMediaInfo {
+    text-align: center;
+    margin-bottom: 10px;
+    padding: 5px;
+    border-radius: 5px;
+    background-color: rgba(0, 0, 0, 0.2);
+}
+
+#currentMediaInfo h3 {
+    margin: 0;
+    color: #00FFFF; /* Cyan for player title */
+    font-size: 1.35rem;
+    text-shadow: 0 0 5px rgba(0, 255, 255, 0.6);
+}
+
+#currentMediaInfo p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #F0F0F0;
+}
+
+#closePlayerBtn {
+    display: block;
+    margin: 10px auto 0;
+    background-color: #D9534F; /* Red for close button */
+    box-shadow: none;
+}
+#closePlayerBtn:hover {
+    background-color: #C9302C;
+    transform: translateY(-2px);
+    box-shadow: none;
+}
+
+/* --- Modals --- */
+.modal {
+    position: fixed;
+    z-index: 3000; /* Even higher for modals */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.85); /* Darker overlay */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(8px); /* Stronger blur */
+    -webkit-backdrop-filter: blur(8px); /* Safari support */
+}
+
+.modal-content {
+    background: linear-gradient(135deg, #1A1A2E, #0F1A2D); /* Dark gradient for modal content */
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 0 25px rgba(0, 255, 255, 0.5); /* Strong cyan glow for modals */
+    color: #E0E0E0;
+    border: 1px solid #00FFFF;
+    animation: fadeInScale 0.3s ease-out forwards; /* Simple animation */
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #FF0077; /* Electric Pink for modal titles */
+    text-align: center;
+    margin-bottom: 25px;
+    font-size: 1.8rem;
+    text-shadow: 0 0 5px rgba(255, 0, 119, 0.5);
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: #00FFFF; /* Cyan for labels */
+    font-weight: 700;
+}
+
+.modal-content button {
+    margin-top: 25px;
+    display: inline-block; /* For side-by-side buttons */
+}
+
+/* Animations */
+@keyframes fadeInScale {
+    from {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+/* For smaller screens / mobile portrait */
+@media (max-width: 600px) {
+    h1 {
+        font-size: 1.5rem;
+    }
+
+    .tabs {
+        flex-wrap: wrap; /* Allow tabs to wrap if too many */
+        padding: 0.3rem 0;
+    }
+
+    .tab-button {
+        padding: 0.6rem 0.8rem;
+        font-size: 0.9rem;
+        max-width: none; /* Let them adjust naturally */
+    }
+
+    main {
+        margin: 0.5rem;
+        padding: 1rem;
+    }
+
+    .media-item {
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 12px;
+    }
+    .media-item-thumbnail {
+        margin-bottom: 10px;
+    }
+    .media-item-info {
+        margin-left: 0;
+    }
+}
