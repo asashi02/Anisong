@@ -1,0 +1,338 @@
+/* --- Global Styles --- */
+body {
+    font-family: 'Quicksand', sans-serif; /* A more rounded, friendly font */
+    margin: 0;
+    /* Gradient background for a sunset effect */
+    background: linear-gradient(to bottom right, #ffb3ba, #ffd1ba, #ffee93); /* Soft pink, light orange, pale yellow */
+    color: #333333; /* Darker text for contrast on light background */
+    line-height: 1.6;
+    min-height: 100vh; /* Ensure gradient covers full height */
+    display: flex;
+    flex-direction: column;
+}
+
+/* Scrollbar styling (optional, for webkit browsers) */
+::-webkit-scrollbar {
+    width: 8px;
+}
+::-webkit-scrollbar-track {
+    background: #ffee93;
+}
+::-webkit-scrollbar-thumb {
+    background: #e6677f;
+    border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+    background: #e04a64;
+}
+
+/* --- Header --- */
+header {
+    background-color: #f7a0b3; /* Sakura pink */
+    padding: 1rem;
+    text-align: center;
+    color: #ffffff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    position: sticky; /* Make header sticky */
+    top: 0;
+    z-index: 1001; /* Above other content */
+}
+
+h1 {
+    margin: 0;
+    font-size: 1.8rem;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.2);
+}
+
+/* --- Tabs Navigation --- */
+.tabs {
+    display: flex;
+    justify-content: center;
+    background-color: #ffc2d1; /* Lighter pink */
+    padding: 0.5rem 0;
+    border-bottom: 3px solid #e6677f; /* Deeper pink separator */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    position: sticky; /* Make tabs sticky */
+    top: 72px; /* Adjust if header height changes */
+    z-index: 1000;
+}
+
+.tab-button {
+    background: none;
+    border: none;
+    color: #663366; /* Dark purple for contrast */
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-size: 1.05rem;
+    font-weight: 600; /* Slightly bolder */
+    transition: all 0.3s ease;
+    flex: 1; /* Distribute space evenly */
+    text-align: center;
+    max-width: 150px; /* Limit tab width for mobile */
+}
+
+.tab-button:hover:not(.active) {
+    background-color: #e6677f30; /* Lighter hover effect */
+    color: #a04a60;
+}
+
+.tab-button.active {
+    background-color: #e6677f; /* Active tab color */
+    color: #ffffff;
+    font-weight: bold;
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+/* --- Main Content Area --- */
+main {
+    padding: 1rem;
+    flex-grow: 1; /* Allows main content to expand and push footer down */
+    background-color: rgba(255, 255, 255, 0.8); /* Slightly translucent white background for content */
+    margin: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+.tab-content {
+    margin-top: 1.5rem;
+}
+
+.hidden {
+    display: none !important;
+}
+
+/* --- Form Elements --- */
+input[type="file"],
+input[type="text"],
+textarea,
+select {
+    display: block;
+    width: calc(100% - 20px);
+    padding: 12px;
+    margin-bottom: 15px;
+    border: 1px solid #e6677f; /* Pink border */
+    border-radius: 8px;
+    background-color: #ffffff;
+    color: #333333;
+    font-size: 1rem;
+    box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+textarea {
+    min-height: 80px;
+    resize: vertical;
+}
+
+/* --- Buttons --- */
+button {
+    background-color: #e6677f; /* Main button color */
+    color: #ffffff;
+    border: none;
+    padding: 12px 18px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 1rem;
+    font-weight: 700;
+    margin-right: 10px;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+button:hover {
+    background-color: #e04a64; /* Darker pink on hover */
+    transform: translateY(-2px); /* Slight lift effect */
+}
+
+/* Specific button styles */
+#installApp {
+    background-color: #7ab2b2; /* A calming light teal */
+}
+#installApp:hover {
+    background-color: #6da0a0;
+}
+
+.delete-btn {
+    background-color: #d9534f; /* Danger red */
+}
+.delete-btn:hover {
+    background-color: #c9302c;
+}
+.close-modal {
+    background-color: #6c757d; /* Grey for cancel/close */
+}
+.close-modal:hover {
+    background-color: #5a6268;
+}
+
+/* --- Media List Items --- */
+.media-list {
+    margin-top: 20px;
+}
+
+.media-item {
+    background-color: #ffffff; /* White background for items */
+    padding: 15px;
+    margin-bottom: 12px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    border: 1px solid #ffd1ba; /* Soft orange border */
+}
+
+.media-item:hover {
+    transform: translateY(-3px); /* Lift effect */
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+}
+
+.media-item-info {
+    flex-grow: 1;
+    margin-left: 15px; /* Space from thumbnail */
+}
+
+.media-item-info h4 {
+    margin: 0 0 5px 0;
+    font-size: 1.15rem;
+    color: #4a148c; /* Deep purple for titles */
+}
+
+.media-item-info p {
+    margin: 0;
+    font-size: 0.95rem;
+    color: #666666;
+}
+
+.media-item-thumbnail {
+    width: 60px;
+    height: 60px;
+    border-radius: 8px;
+    object-fit: cover;
+    border: 2px solid #e6677f; /* Pink border around thumbnail */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Image Grid specific styles */
+.image-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+    gap: 15px;
+}
+
+.image-grid .media-item {
+    flex-direction: column;
+    text-align: center;
+    padding: 10px;
+    align-items: center; /* Center content in column */
+}
+
+.image-grid .media-item-thumbnail {
+    width: 110px;
+    height: 110px;
+    margin: 0 auto 10px auto;
+}
+
+.image-grid .media-item-info {
+    width: 100%;
+    margin-left: 0;
+}
+
+/* --- Media Player Container --- */
+#mediaPlayerContainer {
+    position: sticky; /* Sticky player at the bottom */
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    background: linear-gradient(to right, #663366, #e6677f); /* Purple to pink gradient */
+    border-top: 3px solid #ffffee; /* Light border */
+    padding: 15px;
+    box-sizing: border-box;
+    z-index: 1002; /* On top of everything */
+    color: #ffffff;
+    box-shadow: 0 -4px 10px rgba(0, 0, 0, 0.2);
+}
+
+#audioPlayer, #videoPlayer {
+    width: 100%;
+    margin-bottom: 10px;
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+#currentMediaInfo {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+#currentMediaInfo h3 {
+    margin: 0;
+    color: #ffee93; /* Golden yellow for title */
+    font-size: 1.3rem;
+}
+
+#currentMediaInfo p {
+    margin: 5px 0;
+    font-size: 0.95rem;
+    color: #f0f0f0;
+}
+
+#closePlayerBtn {
+    display: block;
+    margin: 0 auto;
+    background-color: #a04a60; /* Darker pink for player close */
+}
+
+/* --- Modals --- */
+.modal {
+    position: fixed;
+    z-index: 2000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px); /* Frosted glass effect */
+}
+
+.modal-content {
+    background: linear-gradient(to top left, #ffc2d1, #f7a0b3); /* Light pink gradient */
+    margin: 15% auto;
+    padding: 30px;
+    border-radius: 15px;
+    width: 90%;
+    max-width: 550px;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+    color: #333333;
+}
+
+.modal-content h3 {
+    margin-top: 0;
+    color: #663366; /* Deep purple for modal titles */
+    text-align: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.modal-content label {
+    display: block;
+    margin-bottom: 8px;
+    color: #663366;
+    font-weight: 600;
+}
+
+.modal-content button {
+    margin-top: 20px;
+}
+
+/* Google Fonts Import (add this to the very top of your style.css) */
+@import url('https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap');
